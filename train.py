@@ -365,6 +365,7 @@ def train(hyp):
             torch.save(ckpt, last)
             if (best_fitness == fi) and not final_epoch:
                 torch.save(ckpt, best)
+            os.system('cp /content/yolov3-wrapper-for-custom-data/weights/*.pt "/content/drive/My Drive/dataset/weights/"')
             del ckpt
 
         # end epoch ----------------------------------------------------------------------------------------------------
