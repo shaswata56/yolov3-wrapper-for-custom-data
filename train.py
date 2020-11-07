@@ -436,7 +436,7 @@ if __name__ == '__main__':
         if opt.bucket:
             os.system('gsutil cp gs://%s/evolve.txt .' % opt.bucket)  # download evolve.txt if exists
 
-        for _ in range(1):  # generations to evolve
+        for _ in range(50):  # generations to evolve
             if os.path.exists('evolve.txt'):  # if evolve.txt exists: select best hyps and mutate
                 # Select parent(s)
                 parent = 'single'  # parent selection method: 'single' or 'weighted'
@@ -473,12 +473,13 @@ if __name__ == '__main__':
             limits = [(1e-5, 1e-2), (0.00, 0.70), (0.60, 0.98), (0, 0.001), (0, .9), (0, .9), (0, .9), (0, .9), (0, 3)]
             for k, v in zip(keys, limits):
                 hyp[k] = np.clip(hyp[k], v[0], v[1])
-
+               
             # Train mutation
             results = train(hyp.copy())
-
+            
+            from utils.utils import *;
             # Write mutation results
             print_mutation(hyp, results, opt.bucket)
 
             # Plot results
-            # plot_evolution_results(hyp)
+            plot_evolution_results(hyp)
