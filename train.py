@@ -23,20 +23,20 @@ best = wdir + 'best.pt'
 results_file = 'results.txt'
 
 # Hyperparameters
-hyp = {'giou': 2.37,  # giou loss gain
-       'cls': 45.1,  # cls loss gain
-       'cls_pw': 1.01,  # cls BCELoss positive_weight
-       'obj': 51,  # obj loss gain (*=img_size/320 if img_size != 320)
-       'obj_pw': 0.676,  # obj BCELoss positive_weight
-       'iou_t': 0.126,  # iou training threshold
+hyp = {'giou': 2.04,  # giou loss gain
+       'cls': 42.5,  # cls loss gain
+       'cls_pw': 1.34,  # cls BCELoss positive_weight
+       'obj': 61.2,  # obj loss gain (*=img_size/320 if img_size != 320)
+       'obj_pw': 0.685,  # obj BCELoss positive_weight
+       'iou_t': 0.144,  # iou training threshold
        'lr0': 0.01,  # initial learning rate (SGD=5E-3, Adam=5E-4)
        'lrf': 0.0005,  # final learning rate (with cos scheduler)
-       'momentum': 0.928,  # SGD momentum
-       'weight_decay': 0.000329,  # optimizer weight decay
+       'momentum': 0.96,  # SGD momentum
+       'weight_decay': 0.000314,  # optimizer weight decay
        'fl_gamma': 0.0,  # focal loss gamma (efficientDet default is gamma=1.5)
-       'hsv_h': 0.0111,  # image HSV-Hue augmentation (fraction)
-       'hsv_s': 0.619,  # image HSV-Saturation augmentation (fraction)
-       'hsv_v': 0.226,  # image HSV-Value augmentation (fraction)
+       'hsv_h': 0.00974,  # image HSV-Hue augmentation (fraction)
+       'hsv_s': 0.857,  # image HSV-Saturation augmentation (fraction)
+       'hsv_v': 0.209,  # image HSV-Value augmentation (fraction)
        'degrees': 0.0,  # image rotation (+/- deg)
        'translate': 0.0,  # image translation (+/- fraction)
        'scale': 0.0,  # image scale (+/- gain)
