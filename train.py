@@ -15,7 +15,13 @@ try:  # Mixed precision training https://github.com/NVIDIA/apex
     from apex import amp
 except:
     print('Apex recommended for faster mixed precision training: https://github.com/NVIDIA/apex')
-    mixed_precision = False  # not installed
+    print('Attempting to install Apex')
+    os.system('sh apex.sh')
+    try:
+        from apex import amp
+        print('Apex successfully imported! :D')
+    except:
+        mixed_precision = False  # not installed
 
 wdir = 'weights' + os.sep  # weights dir
 last = wdir + 'last.pt'
